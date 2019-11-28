@@ -1,0 +1,20 @@
+{
+    "name": "siment/maintenance-bundle",
+    "description": "This bundle offers functionality related to maintaining an application that is deployed and in use in a production environment.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Siment\\MaintenanceBundle\\": ""
+        }
+    },
+    "require": {
+        "symfony/http-kernel": "^5.0",
+        "psr/simple-cache": "^1.0",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "symfony/phpunit-bridge": "^5.0"
+    }
+}
