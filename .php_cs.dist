@@ -8,5 +8,9 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'no_superfluous_phpdoc_tags' => [
+            'allow_unused_params' => true,
+            'allow_mixed' => true,
+        ],
     ])
     ->setFinder($finder);
