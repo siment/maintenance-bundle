@@ -11,13 +11,13 @@ namespace Siment\MaintenanceBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * Registers service configuration.
  */
-class MaintenanceBundleExtension extends Extension
+class SimentMaintenanceExtension extends Extension
 {
     /**
      * @param array            $config    Configuration object
@@ -27,8 +27,8 @@ class MaintenanceBundleExtension extends Extension
      */
     public function load(array $config, ContainerBuilder $container)
     {
-        /** @var XmlFileLoader $loader Loads structured data from config file */
-        $loader = new XmlFileLoader(
+        /** @var YamlFileLoader $loader Loads structured data from config file */
+        $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__.'/../Resources/config')
         );
