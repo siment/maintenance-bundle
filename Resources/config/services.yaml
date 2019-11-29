@@ -8,3 +8,9 @@ services:
     Siment\MaintenanceBundle\Command\GreetCommand:
         tags:
             - { name: 'console.command' }
+    Siment\MaintenanceBundle\EventListener\RequestListener:
+        arguments:
+            $c: '@cache.app'
+            $t: '@twig'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, priority: 1000000 }
