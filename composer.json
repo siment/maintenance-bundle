@@ -10,7 +10,7 @@
     },
     "require": {
         "symfony/http-kernel": "^5.0",
-        "twig/twig": "^3.0",
+        "twig/twig": "^2.12",
         "symfony/cache-contracts": "^2.0"
     },
     "require-dev": {
