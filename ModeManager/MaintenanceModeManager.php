@@ -55,6 +55,6 @@ class MaintenanceModeManager implements MaintenanceModeManagerInterface
         /** @var ItemInterface $cacheItem */
         $cacheItem = $this->cache->getItem(self::$modeIdentifier);
 
-        return $cacheItem->isHit() ? true : false;
+        return $cacheItem->isHit();
     }
 }
