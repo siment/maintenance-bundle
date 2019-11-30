@@ -10,7 +10,7 @@
 namespace Siment\MaintenanceBundle\ModeManager;
 
 use Psr\Cache\CacheItemPoolInterface;
-use Symfony\Component\Cache\CacheItem;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class MaintenanceModeManager implements MaintenanceModeManagerInterface
 {
@@ -33,7 +33,7 @@ class MaintenanceModeManager implements MaintenanceModeManagerInterface
     /** {@inheritdoc} */
     public function enable(): bool
     {
-        /** @var CacheItem $cacheItem */
+        /** @var ItemInterface $cacheItem */
         $cacheItem = $this->cache->getItem(self::$modeIdentifier);
         $cacheItem->set(true);
         $this->cache->save($cacheItem);
@@ -52,7 +52,7 @@ class MaintenanceModeManager implements MaintenanceModeManagerInterface
     /** {@inheritdoc} */
     public function isEnabled(): bool
     {
-        /** @var CacheItem $cacheItem */
+        /** @var ItemInterface $cacheItem */
         $cacheItem = $this->cache->getItem(self::$modeIdentifier);
 
         return $cacheItem->isHit();
