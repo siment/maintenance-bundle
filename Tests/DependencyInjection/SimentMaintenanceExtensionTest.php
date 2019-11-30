@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
-use Siment\MaintenanceBundle\DependencyInjection\SimentMaintenanceExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
+use Siment\MaintenanceBundle\DependencyInjection\SimentMaintenanceExtension;
 
 class SimentMaintenanceExtensionTestTestCase extends AbstractExtensionTestCase
 {
@@ -25,6 +25,8 @@ class SimentMaintenanceExtensionTestTestCase extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasService('Siment\MaintenanceBundle\Command\MaintenanceStatusCommand');
         $this->assertContainerBuilderHasService('Siment\MaintenanceBundle\EventListener\RequestListener');
         $this->assertContainerBuilderHasService('Siment\MaintenanceBundle\ModeManager\MaintenanceModeManager');
-        $this->assertContainerBuilderHasService('Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface');
+        $this->assertContainerBuilderHasService(
+            'Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface'
+        );
     }
 }

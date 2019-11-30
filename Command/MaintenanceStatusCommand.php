@@ -15,7 +15,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Command that outputs current status of application's maintenance mode
+ * Command that outputs current status of application's maintenance mode.
  */
 class MaintenanceStatusCommand extends Command
 {

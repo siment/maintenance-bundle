@@ -26,6 +26,9 @@ class MaintenanceStatusCommandTest extends TestCase
     /** @var CommandTester Command tester */
     private $commandTester;
 
+    /**
+     * Set up test.
+     */
     public function setUp(): void
     {
         $this->modeManagerMock = $this->createMock(MaintenanceModeManager::class);
@@ -37,6 +40,11 @@ class MaintenanceStatusCommandTest extends TestCase
         $this->commandTester = new CommandTester($command);
     }
 
+    /**
+     * Test for when application is in maintenance mode.
+     *
+     * @see \Siment\MaintenanceBundle\Command\MaintenanceStatusCommand::execute
+     */
     public function testOutputInMaintenanceMode()
     {
         $this->modeManagerMock->expects($this->once())
@@ -50,6 +58,11 @@ class MaintenanceStatusCommandTest extends TestCase
         $this->assertStringContainsString('Maintenance mode is ENABLED.', $output);
     }
 
+    /**
+     * Test for when application is not in maintenance mode.
+     *
+     * @see \Siment\MaintenanceBundle\Command\MaintenanceStatusCommand::execute
+     */
     public function testOutputNotInMaintenanceMode()
     {
         $this->modeManagerMock->expects($this->once())
