@@ -5,9 +5,6 @@
 # file that was distributed with this source code.
 
 services:
-    Siment\MaintenanceBundle\Command\GreetCommand:
-        tags:
-            - { name: 'console.command' }
     Siment\MaintenanceBundle\Command\MaintenanceEnableCommand:
         tags:
             - { name: 'console.command' }
