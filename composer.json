@@ -11,13 +11,12 @@
     "require": {
         "symfony/http-kernel": "^5.0",
         "twig/twig": "^3.0",
-        "symfony/cache-contracts": "^2.0"
+        "symfony/cache": "^5.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "symfony/phpunit-bridge": "^5.0",
         "symfony/dependency-injection": "^5.0",
-        "matthiasnoback/symfony-dependency-injection-test": "^4.1",
-        "symfony/cache": "^5.0"
+        "matthiasnoback/symfony-dependency-injection-test": "^4.1"
     }
 }
