@@ -1,5 +1,4 @@
 language: php
-sudo: false
 cache:
   directories:
     - $HOME/.composer/cache/files
@@ -10,7 +9,7 @@ env:
     - PHPUNIT_FLAGS="-v"
     - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
 
-matrix:
+jobs:
   fast_finish: true
   include:
     # Minimum supported dependencies with the latest and oldest PHP version
@@ -21,9 +20,8 @@ matrix:
 
       # Test the latest stable release
     - php: 7.2
-      env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-text"
     - php: 7.3
-      env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-text"
+      env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-clover clover.xml"
 
       # Test Symfony versions
     - php: 7.2
@@ -47,8 +45,14 @@ install:
   - composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
   - ./vendor/bin/simple-phpunit install
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
   - composer validate --strict --no-check-lock
   # simple-phpunit is the PHPUnit wrapper provided by the PHPUnit Bridge component and
   # it helps with testing legacy code and deprecations (composer require symfony/phpunit-bridge)
   - ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS
+  - if [[ $COVERAGE != true ]]; then ./cc-test-reporter after-build --coverage-input-type clover --id ade0a5645b27a9890dcfef5c5e6c6ded79fe6f97460e6c83d799961a81447904 --exit-code $TRAVIS_TEST_RESULT; fi
