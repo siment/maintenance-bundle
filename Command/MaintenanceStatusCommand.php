@@ -9,19 +9,33 @@
 
 namespace Siment\MaintenanceBundle\Command;
 
+use Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * A simple demo command that outputs a greeting.
+ * Command that outputs current status of application's maintenance mode
  */
-class GreetCommand extends Command
+class MaintenanceStatusCommand extends Command
 {
     /** @var string The name of the command */
-    protected static $defaultName = 'demo:greet';
+    protected static $defaultName = 'maintenance:status';
+
+    /** @var MaintenanceModeManagerInterface Maintenance mode manager */
+    private $mode;
+
+    /**
+     * MaintenanceEnableCommand constructor.
+     *
+     * @param string|null                     $name Name of command
+     * @param MaintenanceModeManagerInterface $mode Maintenance mode manager
+     */
+    public function __construct(string $name = null, MaintenanceModeManagerInterface $mode)
+    {
+        parent::__construct($name);
+        $this->mode = $mode;
+    }
 
     /**
      * Configuring the command.
@@ -29,20 +43,7 @@ class GreetCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Greet someone')
-            ->setHelp('Saying hello')
-            ->addArgument(
-                'name',
-                InputArgument::OPTIONAL,
-                'Who do you want to greet?'
-            )
-            ->addOption(
-                'yell',
-                null,
-                InputOption::VALUE_NONE,
-                'If set, the task will yell in uppercase letters'
-            )
-        ;
+            ->setDescription('Outputs current status of application\'s maintenance mode');
     }
 
     /**
@@ -55,15 +56,10 @@ class GreetCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name = $input->getArgument('name');
-        if ($name) {
-            $text = 'Hello '.$name;
+        if ($this->mode->isEnabled()) {
+            $text = 'Maintenance mode is ENABLED.';
         } else {
-            $text = 'Hello';
-        }
-
-        if ($input->getOption('yell')) {
-            $text = strtoupper($text);
+            $text = 'Maintenance mode is DISABLED.';
         }
 
         $output->writeln($text);

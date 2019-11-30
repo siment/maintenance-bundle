@@ -8,6 +8,24 @@ services:
     Siment\MaintenanceBundle\Command\GreetCommand:
         tags:
             - { name: 'console.command' }
+    Siment\MaintenanceBundle\Command\MaintenanceEnableCommand:
+        tags:
+            - { name: 'console.command' }
+        arguments:
+            $name: ~
+            $mode: '@Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface'
+    Siment\MaintenanceBundle\Command\MaintenanceDisableCommand:
+        tags:
+            - { name: 'console.command' }
+        arguments:
+            $name: ~
+            $mode: '@Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface'
+    Siment\MaintenanceBundle\Command\MaintenanceStatusCommand:
+        tags:
+            - { name: 'console.command' }
+        arguments:
+            $name: ~
+            $mode: '@Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface'
     Siment\MaintenanceBundle\EventListener\RequestListener:
         arguments:
             $t: '@twig'

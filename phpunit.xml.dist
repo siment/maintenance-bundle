@@ -20,7 +20,10 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">Command</directory>
+            <directory suffix=".php">DependencyInjection</directory>
             <directory suffix=".php">EventListener</directory>
+            <directory suffix=".php">ModeManager</directory>
         </whitelist>
     </filter>
 </phpunit>
