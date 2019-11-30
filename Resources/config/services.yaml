@@ -10,7 +10,11 @@ services:
             - { name: 'console.command' }
     Siment\MaintenanceBundle\EventListener\RequestListener:
         arguments:
-            $c: '@cache.app'
             $t: '@twig'
+            $mode: '@Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface'
         tags:
             - { name: kernel.event_listener, event: kernel.request, priority: 1000000 }
+    Siment\MaintenanceBundle\ModeManager\MaintenanceModeManager:
+        arguments:
+            $cache: '@cache.app'
+    Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface: '@Siment\MaintenanceBundle\ModeManager\MaintenanceModeManager'

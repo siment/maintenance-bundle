@@ -9,9 +9,9 @@
 
 namespace Siment\MaintenanceBundle\EventListener;
 
+use Siment\MaintenanceBundle\ModeManager\MaintenanceModeManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Contracts\Cache\CacheInterface;
 use Twig\Environment;
 
 /**
@@ -19,22 +19,22 @@ use Twig\Environment;
  */
 class RequestListener
 {
-    /** @var CacheInterface Standard Symfony cache interface */
-    private $cache;
-
     /** @var Environment Twig environment */
     private $twig;
+
+    /** @var MaintenanceModeManagerInterface Maintenance mode manager */
+    private $mode;
 
     /**
      * RequestListener constructor.
      *
-     * @param CacheInterface $c Standard Symfony cache interface
-     * @param Environment    $t Twig environment
+     * @param Environment                     $t    Twig environment
+     * @param MaintenanceModeManagerInterface $mode Maintenance mode manager
      */
-    public function __construct(CacheInterface $c, Environment $t)
+    public function __construct(Environment $t, MaintenanceModeManagerInterface $mode)
     {
-        $this->cache = $c;
         $this->twig = $t;
+        $this->mode = $mode;
     }
 
     /**
@@ -49,11 +49,7 @@ class RequestListener
      */
     public function onKernelRequest(RequestEvent $event): void
     {
-        $m = $this->cache->get('maintenance', function () {
-            return false;
-        });
-
-        if (false === $m) {
+        if (!$this->mode->isEnabled()) {
             return;
         }
 
