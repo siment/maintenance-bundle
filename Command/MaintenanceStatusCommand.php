@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (C) 2019 Simen Thorsrud
  * @author Simen Thorsrud <simen.thorsrud@gmail.com>

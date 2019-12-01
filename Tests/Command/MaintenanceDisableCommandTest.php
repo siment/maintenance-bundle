@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (C) 2019 Simen Thorsrud
  * @author Simen Thorsrud <simen.thorsrud@gmail.com>
@@ -6,6 +7,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+namespace Siment\MaintenanceBundle\Tests\Command;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
