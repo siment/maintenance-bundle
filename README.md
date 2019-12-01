@@ -86,6 +86,8 @@ Command: `php bin/console maintenance:status`
 
 ## TESTING ##
 
+### Unit testing ###
+
 The bundle is tested with `symfony/framework-bundle:^4` and `symfony/framework-bundle:^5`
 on **PHP 7.2** and **PHP 7.3**. See build details on [Travis CI](https://travis-ci.com/siment/maintenance-bundle).
 
@@ -95,6 +97,20 @@ To run tests locally, enter bundle source directory
 ```bash
 $ composer install
 $ vendor/bin/simple-phpunit
+```
+
+### Coding standards ###
+
+[PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is used to enforce
+[Symfony coding standards](https://symfony.com/doc/current/contributing/code/standards.html) and
+[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) is used to enforce 
+[PSR-12](https://www.php-fig.org/psr/psr-12/) coding style. To run these locally, you can enter 
+bundle source directory (`$PROJECT_ROOT/vendor/siment/maintenance-bundle`) and run:
+
+```bash
+$ composer install
+$ vendor/bin/phpcs
+$ vendor/bin/php-cs-fixer fix --dry-run
 ```
 
 ## LICENSE ##

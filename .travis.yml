@@ -64,4 +64,5 @@ script:
   # it helps with testing legacy code and deprecations (composer require symfony/phpunit-bridge)
   - if [[ $COVERAGE == true ]]; then ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS; fi
   - if [[ $COVERAGE == true ]]; then ./vendor/bin/php-cs-fixer fix -v --diff --dry-run; fi
+  - if [[ $COVERAGE == true ]]; then ./vendor/bin/phpcs -v; fi
   - if [[ $COVERAGE == true ]]; then ./cc-test-reporter after-build --coverage-input-type clover --id $CC_TEST_REPORTER_ID --exit-code $TRAVIS_TEST_RESULT; fi
