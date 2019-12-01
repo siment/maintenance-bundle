@@ -4,7 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/926279ddea5ea4fc9eab/maintainability)](https://codeclimate.com/github/siment/maintenance-bundle/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/926279ddea5ea4fc9eab/test_coverage)](https://codeclimate.com/github/siment/maintenance-bundle/test_coverage)
 
-## About ##
+## ABOUT ##
 
 This bundle offers functionality related to maintaining an application that is deployed 
 and in use in a production environment.
@@ -13,7 +13,7 @@ and in use in a production environment.
 
 1. Ability to put application in maintenance mode - which will deny incoming requests
 
-## Installation ##
+## INSTALLATION ##
 
 Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
@@ -60,7 +60,7 @@ return [
 ];
 ```
 
-## Usage ##
+## USAGE ##
 
 ### Commands ###
 
@@ -84,6 +84,19 @@ Command: `php bin/console maintenance:status`
 - Outputs `Maintenance mode is DISABLED.` when application is *not* in maintenance mode.
 - Outputs `Maintenance mode is ENABLED.` when application is in maintenance mode.
 
-## License ##
+## TESTING ##
+
+The bundle is tested with `symfony/framework-bundle:^4` and `symfony/framework-bundle:^5`
+on **PHP 7.2** and **PHP 7.3**. See build details on [Travis CI](https://travis-ci.com/siment/maintenance-bundle).
+
+To run tests locally, enter bundle source directory 
+(`$PROJECT_ROOT/vendor/siment/maintenance-bundle`) and run:
+
+```bash
+$ composer install
+$ vendor/bin/simple-phpunit
+```
+
+## LICENSE ##
 
 MIT. See [LICENSE](LICENSE).
