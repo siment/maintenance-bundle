@@ -6,13 +6,12 @@
 
 ## About ##
 
-This bundle offers functionality related to maintaining an application
-that is deployed and in use in a production environment.
+This bundle offers functionality related to maintaining an application that is deployed 
+and in use in a production environment.
 
 ### Main features ###
 
-1. Ability to put application in maintenance mode - which will deny
-incoming requests
+1. Ability to put application in maintenance mode - which will deny incoming requests
 
 ## Installation ##
 
@@ -20,19 +19,37 @@ Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
-### Step 1: Download the Bundle
+### Step 1: Add this repository to your composer.json ###
 
-Open a command console, enter your project directory and execute the
-following command to download the latest stable version of this bundle:
+Since I have not decided whether to publish this bundle on Packagist or not, you will
+have to add this repository to your project's `composer.json`. You can do it like this:
+
+`composer config repositories.maintenance-bundle vcs git@github.com:siment/maintenance-bundle.git`
+
+This will add the following section to your `composer.json`:
+
+```
+    "repositories": {
+        "maintenance-bundle": {
+            "type": "vcs",
+            "url": "git@github.com:siment/maintenance-bundle.git"
+        }
+    }
+```
+
+### Step 2: Download the Bundle ###
+
+Open a command console, enter your project directory and execute the following command
+to download the latest stable version of this bundle:
 
 ```console
 $ composer require siment/maintenance-bundle
 ```
 
-### Step 2: Enable the Bundle
+### Step 3: Enable the Bundle ###
 
-Then, enable the bundle by adding it to the list of registered bundles
-in the `config/bundles.php` file of your project:
+Then, enable the bundle by adding it to the list of registered bundles in the
+`config/bundles.php` file of your project:
 
 ```php
 // config/bundles.php
@@ -45,8 +62,28 @@ return [
 
 ## Usage ##
 
-Please see [Resources/doc/index.md](Resources/doc/index.md)
+### Commands ###
+
+#### Enable maintenance mode ####
+
+When maintenance mode is enabled, all requests will be denied with a *503 Service not available*
+response.
+
+Command: `php bin/console maintenance:enable`
+
+#### Disable maintenance mode ####
+
+Disables maintenance mode.
+
+Command: `php bin/console maintenance:disable`
+
+#### Get maintenance status ####
+
+Command: `php bin/console maintenance:status`
+
+- Outputs `Maintenance mode is DISABLED.` when application is *not* in maintenance mode.
+- Outputs `Maintenance mode is ENABLED.` when application is in maintenance mode.
 
 ## License ##
 
-Please se [LICENSE](LICENSE)
+MIT. See [LICENSE](LICENSE).
