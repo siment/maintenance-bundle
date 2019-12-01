@@ -13,7 +13,7 @@ env:
     - PHPUNIT_FLAGS="-v"
     - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
     - GIT_COMMIT_SHA=$(git show-ref --hash refs/heads/master)
-    - GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    - GIT_BRANCH=$TRAVIS_BRANCH
 
 jobs:
   fast_finish: true
