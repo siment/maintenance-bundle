@@ -1,8 +1,8 @@
 # Maintenance Bundle #
 
 [![Build Status](https://travis-ci.com/siment/maintenance-bundle.svg?branch=master)](https://travis-ci.com/siment/maintenance-bundle)
-[![Maintainability](https://api.codeclimate.com/v1/badges/926279ddea5ea4fc9eab/maintainability)](https://codeclimate.com/github/siment/maintenance-bundle/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/926279ddea5ea4fc9eab/test_coverage)](https://codeclimate.com/github/siment/maintenance-bundle/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ea0d42491249939be766/maintainability)](https://codeclimate.com/github/siment/symfony-maintenance-bundle/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ea0d42491249939be766/test_coverage)](https://codeclimate.com/github/siment/symfony-maintenance-bundle/test_coverage)
 
 ## ABOUT ##
 
