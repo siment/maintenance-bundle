@@ -89,7 +89,8 @@ Command: `php bin/console maintenance:status`
 ### Unit testing ###
 
 The bundle is tested with `symfony/framework-bundle:^4` and `symfony/framework-bundle:^5`
-on **PHP 7.2** and **PHP 7.3**. See build details on [Travis CI](https://travis-ci.com/siment/maintenance-bundle).
+on **PHP 7.2** and **PHP 7.3**. See build details on
+[Travis CI](https://travis-ci.com/siment/symfony-maintenance-bundle).
 
 To run tests locally, enter bundle source directory 
 (`$PROJECT_ROOT/vendor/siment/maintenance-bundle`) and run:
