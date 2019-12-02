@@ -20,7 +20,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class MaintenanceEnableCommandTest extends TestCase
 {
-    /** @var MaintenanceModeManager|MockObject $modeManagerMock Maintenance mode manager */
+    /** @var MaintenanceModeManager&MockObject $modeManagerMock Maintenance mode manager */
     private $modeManagerMock;
 
     /** @var Application Console Application */

@@ -43,7 +43,7 @@ class RequestListener
      *
      * @param RequestEvent $event Request event object
      *
-     * @throws \Psr\Cache\InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError

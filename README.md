@@ -105,13 +105,18 @@ $ vendor/bin/simple-phpunit
 [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is used to enforce
 [Symfony coding standards](https://symfony.com/doc/current/contributing/code/standards.html) and
 [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) is used to enforce 
-[PSR-12](https://www.php-fig.org/psr/psr-12/) coding style. To run these locally, you can enter 
+[PSR-12](https://www.php-fig.org/psr/psr-12/) coding style. [Psalm](https://github.com/vimeo/psalm) 
+is used for static analysis for a
+[large number of issues](https://github.com/vimeo/psalm/blob/master/docs/running_psalm/issues.md).
+
+To run these locally, you can enter 
 bundle source directory (`$PROJECT_ROOT/vendor/siment/maintenance-bundle`) and run:
 
 ```bash
 $ composer install
 $ vendor/bin/phpcs
 $ vendor/bin/php-cs-fixer fix --dry-run
+$ vendor/bin/psalm
 ```
 
 ## LICENSE ##

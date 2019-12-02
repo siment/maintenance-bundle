@@ -41,7 +41,7 @@ class MaintenanceStatusCommand extends Command
     /**
      * Configuring the command.
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Outputs current status of application\'s maintenance mode');
@@ -55,7 +55,7 @@ class MaintenanceStatusCommand extends Command
      *
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($this->mode->isEnabled()) {
             $text = 'Maintenance mode is ENABLED.';

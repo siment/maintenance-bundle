@@ -41,7 +41,7 @@ class MaintenanceDisableCommand extends Command
     /**
      * Configuring the command.
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Disables maintenance mode');
@@ -55,7 +55,7 @@ class MaintenanceDisableCommand extends Command
      *
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->mode->disable();
 

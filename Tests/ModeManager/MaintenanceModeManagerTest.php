@@ -24,7 +24,7 @@ class MaintenanceModeManagerTest extends TestCase
     /** @var MaintenanceModeManager Maintenance mode manager (The tested object) */
     private $maintenanceModeManager;
 
-    /** @var FilesystemAdapter|MockObject Cache pool mock object */
+    /** @var FilesystemAdapter&MockObject Cache pool mock object */
     private $cacheMock;
 
     /** @var string The cache key that defines if application is in maintenance mode */

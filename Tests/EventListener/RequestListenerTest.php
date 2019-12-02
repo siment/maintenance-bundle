@@ -10,6 +10,7 @@
 
 namespace Siment\MaintenanceBundle\Tests\EventListener;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Siment\MaintenanceBundle\EventListener\RequestListener;
 use Siment\MaintenanceBundle\ModeManager\MaintenanceModeManager;
@@ -21,13 +22,13 @@ class RequestListenerTest extends TestCase
     /** @var RequestListener The object being tested */
     private $requestListener;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|Environment Twig environment */
+    /** @var MockObject&Environment Twig environment */
     private $twigMock;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|MaintenanceModeManager Maintenance mode manager */
+    /** @var MockObject&MaintenanceModeManager Maintenance mode manager */
     private $maintenanceModeMock;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|RequestEvent Request event */
+    /** @var MockObject&RequestEvent Request event */
     private $requestEventMock;
 
     /**
@@ -46,7 +47,7 @@ class RequestListenerTest extends TestCase
      *
      * @see \Siment\MaintenanceBundle\EventListener\RequestListener::onKernelRequest
      *
-     * @throws \Psr\Cache\InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
@@ -68,7 +69,7 @@ class RequestListenerTest extends TestCase
      *
      * @see \Siment\MaintenanceBundle\EventListener\RequestListener::onKernelRequest
      *
-     * @throws \Psr\Cache\InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError

@@ -26,7 +26,7 @@ class SimentMaintenanceExtension extends Extension
      *
      * @throws \Exception
      */
-    public function load(array $config, ContainerBuilder $container)
+    public function load(array $config, ContainerBuilder $container): void
     {
         /** @var YamlFileLoader $loader Loads structured data from config file */
         $loader = new YamlFileLoader(
