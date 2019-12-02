@@ -24,7 +24,7 @@ of the Composer documentation.
 Since I have not decided whether to publish this bundle on Packagist or not, you will
 have to add this repository to your project's `composer.json`. You can do it like this:
 
-`composer config repositories.maintenance-bundle vcs git@github.com:siment/maintenance-bundle.git`
+`composer config repositories.maintenance-bundle vcs git@github.com:siment/symfony-maintenance-bundle.git`
 
 This will add the following section to your `composer.json`:
 
