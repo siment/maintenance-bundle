@@ -52,8 +52,6 @@ class MaintenanceEnableCommand extends Command
      *
      * @param InputInterface  $input  Input to command
      * @param OutputInterface $output Output from command
-     *
-     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
