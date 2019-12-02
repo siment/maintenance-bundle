@@ -50,7 +50,8 @@ class MaintenanceStatusCommand extends Command
     /**
      * Executing the command.
      *
-     * @param InputInterface $input Input to command
+     * @param InputInterface  $input  Input to command
+     * @param OutputInterface $output Output from command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {

@@ -1,6 +1,6 @@
 # Maintenance Bundle #
 
-[![Build Status](https://travis-ci.com/siment/maintenance-bundle.svg?branch=master)](https://travis-ci.com/siment/maintenance-bundle)
+[![Build Status](https://travis-ci.com/siment/symfony-maintenance-bundle.svg?branch=master)](https://travis-ci.com/siment/symfony-maintenance-bundle)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ea0d42491249939be766/maintainability)](https://codeclimate.com/github/siment/symfony-maintenance-bundle/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ea0d42491249939be766/test_coverage)](https://codeclimate.com/github/siment/symfony-maintenance-bundle/test_coverage)
 
@@ -32,7 +32,7 @@ This will add the following section to your `composer.json`:
     "repositories": {
         "maintenance-bundle": {
             "type": "vcs",
-            "url": "git@github.com:siment/maintenance-bundle.git"
+            "url": "git@github.com:siment/symfony-maintenance-bundle.git"
         }
     }
 ```
