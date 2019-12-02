@@ -27,7 +27,7 @@ jobs:
       # Test the latest stable release
     - php: 7.2
     - php: 7.3
-      env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-clover clover.xml"
+      env: RUN_TESTS=true PHPUNIT_FLAGS="-v --coverage-clover clover.xml"
 
       # Test Symfony versions
     - php: 7.2
@@ -44,25 +44,25 @@ jobs:
     - env: STABILITY="dev"
 
 before_install:
-  - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
+  - if [[ $RUN_TESTS != true ]]; then phpenv config-rm xdebug.ini || true; fi
   - if ! [ -v "$DEPENDENCIES" ]; then composer require --no-update ${DEPENDENCIES}; fi;
   - echo $GIT_COMMIT_SHA
   - echo $GIT_BRANCH
 
 install:
   - composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
-  - ./vendor/bin/simple-phpunit install
+  - if [[ $RUN_TESTS == true ]]; then ./vendor/bin/simple-phpunit install; fi
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - if [[ $COVERAGE == true ]]; then ./cc-test-reporter before-build; fi
+  - if [[ $RUN_TESTS == true ]]; then ./cc-test-reporter before-build; fi
 
 script:
   - composer validate --strict --no-check-lock
   # simple-phpunit is the PHPUnit wrapper provided by the PHPUnit Bridge component and
   # it helps with testing legacy code and deprecations (composer require symfony/phpunit-bridge)
-  - if [[ $COVERAGE == true ]]; then ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS; fi
-  - if [[ $COVERAGE == true ]]; then ./vendor/bin/php-cs-fixer fix -v --diff --dry-run; fi
-  - if [[ $COVERAGE == true ]]; then ./vendor/bin/phpcs -v; fi
-  - if [[ $COVERAGE == true ]]; then ./cc-test-reporter after-build --coverage-input-type clover --id $CC_TEST_REPORTER_ID --exit-code $TRAVIS_TEST_RESULT; fi
+  - if [[ $RUN_TESTS == true ]]; then ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS; fi
+  - if [[ $RUN_TESTS == true ]]; then ./vendor/bin/php-cs-fixer fix -v --diff --dry-run; fi
+  - if [[ $RUN_TESTS == true ]]; then ./vendor/bin/phpcs -v; fi
+  - if [[ $RUN_TESTS == true ]]; then ./cc-test-reporter after-build --coverage-input-type clover --id $CC_TEST_REPORTER_ID --exit-code $TRAVIS_TEST_RESULT; fi
