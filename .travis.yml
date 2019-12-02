@@ -19,24 +19,32 @@ jobs:
   fast_finish: true
   include:
     # Minimum supported dependencies with the latest and oldest PHP version
-    - php: 7.3
+    - name: "Minimum versions of supported dependencies, php 7.3"
+      php: 7.3
       env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
-    - php: 7.2
+    - name: "Minimum versions of supported dependencies, php 7.2"
+      php: 7.2
       env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
 
       # Test the latest stable release
-    - php: 7.2
-    - php: 7.3
+    - name: "Latest versions of supported dependencies, php 7.2"
+      php: 7.2
+    - name: "Latest versions of supported dependencies, php 7.2"
+      php: 7.3
       env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-clover clover.xml"
 
       # Test Symfony versions
-    - php: 7.2
+    - name: "symfony/framework-bundle:^4 and php 7.2"
+      php: 7.2
       env: DEPENDENCIES="symfony/framework-bundle:^4"
-    - php: 7.2
+    - name: "symfony/framework-bundle:^5 and php 7.2"
+      php: 7.2
       env: DEPENDENCIES="symfony/framework-bundle:^5"
-    - php: 7.3
+    - name: "symfony/framework-bundle:^4 and php 7.3"
+      php: 7.3
       env: DEPENDENCIES="symfony/framework-bundle:^4"
-    - php: 7.3
+    - name: "symfony/framework-bundle:^5 and php 7.3"
+      php: 7.3
       env: DEPENDENCIES="symfony/framework-bundle:^5"
 
   allow_failures:
