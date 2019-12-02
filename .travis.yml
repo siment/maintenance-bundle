@@ -29,7 +29,7 @@ jobs:
       # Test the latest stable release
     - name: "Latest versions of supported dependencies, php 7.2"
       php: 7.2
-    - name: "Latest versions of supported dependencies, php 7.2"
+    - name: "Latest versions of supported dependencies, php 7.3"
       php: 7.3
       env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-clover clover.xml"
 
